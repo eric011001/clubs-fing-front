@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
   padding: 0;
@@ -20,7 +24,146 @@ a {
     color-scheme: dark;
   }
   body {
-    color: white;
-    background: black;
+    color: black;
+    background: rgb(224, 221, 221);
+  }
+}
+
+.menu {
+  height: 98vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: left;
+  top: 0.5em;
+  left: 0.5em;
+  bottom: 0.5em;
+  border-radius: 1em;
+  box-sizing: initial;
+  background-color: #8d228a;
+  transition: width 0.2s;
+  overflow: hidden;
+}
+
+.menu ul {
+  position: absolute;
+  top: 5em;
+  left: 0;
+  width: 100%;
+  padding-left: 0.4em;
+}
+
+.menu ul li {
+  position: relative;
+  list-style: none;
+  width: 100%;
+  border-radius: 1em 0 0 1em;
+  transition: 0.2s;
+  margin-left: 0.2em;
+}
+
+.menu ul li:hover {
+  background-color: #8d228a;
+}
+
+.menu ul li.active {
+  background-color: white;
+}
+
+.menu ul li a {
+  position: relative;
+  display: block;
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  color: white;
+}
+
+.menu ul li.active a {
+  color: #8d228a;
+}
+
+.menu ul li a .icon {
+  position: relative;
+  display: block;
+  min-width: 3.8em;
+  height: 3.8em;
+  line-height: 5em;
+  text-align: center;
+}
+
+.menu ul li a .icon ion-icon {
+  font-size: 1.5em;
+}
+
+.menu ul li a .title {
+  position: relative;
+  display: block;
+  padding-left: 0.5em;
+  height: 3.8em;
+  line-height: 3.8em;
+  white-space: normal;
+}
+
+.menu .toggle-button {
+  width: 3em;
+  height: 3em;
+  margin-top: 0.5em;
+  margin-left: 0.7em;
+  border-radius: 1em;
+  background-color: #8d228a;
+  color: white;
+  justify-content: center;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  transition: 0.2s;
+}
+
+.menu .toggle-button:hover {
+  color: #8d228a;
+  background-color: white;
+}
+
+.menu .toggle-button ion-icon {
+  font-size: 1.5em;
+}
+
+.bottomsheet {
+  transform: translateY(200px);
+}
+
+.bottomsheet-opened {
+  animation-name: bottomsheetOpen;
+  animation-duration: 0.2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.bottomsheet-closed {
+  animation-name: bottomsheetClosed;
+  animation-duration: 0.2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes bottomsheetOpen {
+  from {
+    transform: translateY(300px);
+  }
+
+  to {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes bottomsheetClosed {
+  from {
+    transform: translateY(0px);
+  }
+
+  to {
+    transform: translateY(325px);
   }
 }
